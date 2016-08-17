@@ -17,23 +17,20 @@ public class Perceptron {
 	
 	public void doTraining(Point[] points) {
 		
-		double localError;
 		double globalError;
-		int p;
-		int iteration;
-		int output;
-		iteration = 0;
+		int iteration = 0;
 		
 		do {
 			iteration++;
 			globalError = 0;
 			
-			for (p = 0; p < points.length; p++){
+			for (int p = 0; p < points.length; p++){
 				
 				Point current = points[p];
 				
-				output = calculateOutput(current);
-				localError = current.getOutput() - output;
+				int output = calculateOutput(current);
+				
+				double localError = current.getOutput() - output;
 				
 				double oldW0 = weights[0];
 				double oldW1 = weights[1];
